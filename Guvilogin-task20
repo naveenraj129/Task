@@ -1,0 +1,28 @@
+package base;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.time.Duration;
+
+public class  Guvilogintask20{
+
+    public static void main(String[] args) throws InterruptedException {
+
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.guvi.in/");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().window().maximize();
+
+        driver.findElement(By.xpath("//a[contains(@class, 'nav-link  text-primary ')]")).click();
+        driver.findElement(By.xpath("//input[(@type = 'email')]")).sendKeys("naveeva129@gmail.com");
+        driver.findElement(By.xpath("//input[(@type = 'password')]")).sendKeys("nave123");
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//a[(@id = 'login-btn')]")).click();
+        Thread.sleep(5000);
+        String temp = driver.getTitle();
+        System.out.println(temp);
+        driver.close();
+    }
+}
